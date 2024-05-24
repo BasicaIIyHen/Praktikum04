@@ -26,6 +26,9 @@ public class City {
     public static void toString(City city) {
         System.out.println(city.getCityName() + " " + city.getLatitudeKord() + " " + city.getLongitudeKord());
     }
+
+    public  addConneection(City 
+    }
     
 }
 
