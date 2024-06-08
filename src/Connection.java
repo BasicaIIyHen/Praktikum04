@@ -1,6 +1,19 @@
 public class Connection {
+    private City city1;
+    private City city2;
+    private final double distance;
     
-    double getDistanceInKm (City city1, City city2) {
+    public double getDistance() {
+        return distance;
+    }
+
+    public Connection(City city1, City city2) {
+        this.city1 = city1;
+        this.city2 = city2;
+        this.distance = getDistanceInKm(city1, city2);
+    }
+
+    private double getDistanceInKm (City city1, City city2) {
 
         
         double lat1 = city1.getLatitudeKord();
@@ -32,11 +45,13 @@ public class Connection {
         return degrees * Math.PI / 180;
     }
 
-    /*public City getOtherCity(City city) {
+    public City getOtherCity(City city) {
         if (city.equals(city1)) {
             return city2;
-        } else {
+        } else if (city.equals(city2)){
             return city1;
-        }
-    }*/
+        } else return null;
+
+    }
+   
 }

@@ -1,10 +1,19 @@
 import java.util.ArrayList;
 
 public class City {
-    public String cityName;
-    public double latitudeKord;
-    public double longitudeKord;
+    private String cityName;
+    private double latitudeKord;
+    private double longitudeKord;
+    private ArrayList<Connection> connections; 
 
+    
+
+    public City(String cityName, double latitudeKord, double longitudeKord) {
+        this.cityName = cityName;
+        this.latitudeKord = latitudeKord;
+        this.longitudeKord = longitudeKord;
+        this.connections = new ArrayList<Connection>();
+    }
 
     public String getCityName() {
         return cityName;
@@ -12,6 +21,11 @@ public class City {
     public void setCityName(String cityName) {
         this.cityName = cityName;
     }
+
+    public ArrayList<Connection> getConnections(){
+        return connections;
+    }
+
     public double getLatitudeKord() {
         return latitudeKord;
     }
@@ -25,8 +39,8 @@ public class City {
         this.longitudeKord = longitudeKord;
     }
 
-    public static void toString(City city) {
-        System.out.println(city.getCityName() + " " + city.getLatitudeKord() + " " + city.getLongitudeKord());
+    public String toString(City city) {
+        return (city.getCityName() + " " + city.getLatitudeKord() + " " + city.getLongitudeKord());
     }
 
     public void addConnection(City cityToConnect) {
@@ -34,15 +48,23 @@ public class City {
             System.out.println("Eine Stadt kann nicht mit sich selbst verkneupft werden.");
             return;
         }
-    }
+        Connection con = new Connection(this, cityToConnect);
 
-    public Route getRouteTo(City destination) {
-        ArrayList<Route> allPossibleRoutes = new ArrayList<>();
-        Route initialRoute = new Route();
-        Route.addAllRoutes(allPossibleRoutes, initialRoute, this, destination, null);
-
-        return Route.getShortestRoute(this, destination);
+        if (!connections.contains(con)){
+            this.connections.add(con);
+            cityToConnect.connections.add(con);
+        }
+       
     }
+   
+
+    // public Route getRouteTo(City destination) {
+    //     ArrayList<Route> allPossibleRoutes = new ArrayList<>();
+    //     Route initialRoute = new Route();
+    //     Route.addAllRoutes(allPossibleRoutes, initialRoute, this, destination, null);
+
+    //     return Route.getShortestRoute(this, destination);
+    // }
 
     
     
