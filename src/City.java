@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class City {
     public String cityName;
     public double latitudeKord;
@@ -27,8 +29,22 @@ public class City {
         System.out.println(city.getCityName() + " " + city.getLatitudeKord() + " " + city.getLongitudeKord());
     }
 
-    public  addConneection(City 
+    public void addConnection(City cityToConnect) {
+        if (this.equals(cityToConnect)) {
+            System.out.println("Eine Stadt kann nicht mit sich selbst verkneupft werden.");
+            return;
+        }
     }
+
+    public Route getRouteTo(City destination) {
+        ArrayList<Route> allPossibleRoutes = new ArrayList<>();
+        Route initialRoute = new Route();
+        Route.addAllRoutes(allPossibleRoutes, initialRoute, this, destination, null);
+
+        return Route.getShortestRoute(this, destination);
+    }
+
+    
     
 }
 
