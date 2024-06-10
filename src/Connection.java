@@ -6,7 +6,7 @@ public class Connection {
     public double getDistance() {
         return distance;
     }
-
+    //Consructor
     public Connection(City city1, City city2) {
         this.city1 = city1;
         this.city2 = city2;
@@ -31,7 +31,6 @@ public class Connection {
 
         lat1 = degreesToRadians(lat1);
         lat2 = degreesToRadians(lat2);
-
 
         double a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));

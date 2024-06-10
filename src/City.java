@@ -57,16 +57,12 @@ public class City {
        
     }
    
+    public Route getRouteTo(City destination){
+        return Route.getShortestRoute(this, destination);
+    }
 
-    // public Route getRouteTo(City destination) {
-    //     ArrayList<Route> allPossibleRoutes = new ArrayList<>();
-    //     Route initialRoute = new Route();
-    //     Route.addAllRoutes(allPossibleRoutes, initialRoute, this, destination, null);
-
-    //     return Route.getShortestRoute(this, destination);
-    // }
-
-    
-    
+    public String toString(){
+        return cityName + " - " + " Latitude Coordinate: " + latitudeKord + " Longtitude Coordinate: " + longitudeKord;
+    }
 }
 

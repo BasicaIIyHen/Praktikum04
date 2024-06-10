@@ -12,7 +12,7 @@ public class Main {
         City regensburg = new City("Regensburg", 49.01662121288669, 12.092787603517024);
         City wuerzburg = new City("Wuerzburg", 49.79296114327296, 9.945390533206055);
 
-        // Print the cities
+        //print the cities
         System.out.println(ingolstadt);
         System.out.println(muenchen);
         System.out.println(nuernberg);
@@ -21,6 +21,7 @@ public class Main {
         System.out.println(augsburg);
         System.out.println(regensburg);
         System.out.println(wuerzburg);
+        System.out.println();
         
         //create connections
         ingolstadt.addConnection(muenchen);
@@ -35,6 +36,8 @@ public class Main {
         regensburg.addConnection(muenchen);
         regensburg.addConnection(nuernberg);
         nuernberg.addConnection(ulm);
+
+        stuttgart.getRouteTo(regensburg);
     }
 }
 
